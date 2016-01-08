@@ -1,11 +1,14 @@
 {
   "name": "gulp-transform-module",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "transform code to multiple module define",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords":[
+    "gulpplugin"
+  ],
   "repository": {
     "type": "git",
     "url": "git@gitlab.alibaba-inc.com:hilo/gulp-transform-module.git"
@@ -13,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "gulp-util": "^3.0.7",
     "through2": "^2.0.0"
   },
   "devDependencies": {

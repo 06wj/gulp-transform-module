@@ -5,5 +5,8 @@
  * @requires  hilo/event
  */
 var game = {
-
+    init:function(){
+        var bmp = new Bitmap();
+        var ticker = new Ticker();
+    }
 };

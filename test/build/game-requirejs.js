@@ -7,7 +7,10 @@ define('act/game', ['hilo/view/Bitmap', 'hilo/util/ticker', 'hilo/event'], funct
  * @requires  hilo/event
  */
 var game = {
-
+    init:function(){
+        var bmp = new Bitmap();
+        var ticker = new Ticker();
+    }
 };
 
 return game;

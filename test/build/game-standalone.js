@@ -10,7 +10,10 @@ var event = Hilo.event;
  * @requires  hilo/event
  */
 var game = {
-
+    init:function(){
+        var bmp = new Bitmap();
+        var ticker = new Ticker();
+    }
 };
 Hilo.game = game;
 })(window);

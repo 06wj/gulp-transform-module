@@ -45,4 +45,4 @@ for(var moduleType in moduleTypes){
     })(moduleType);
 }
 
-gulp.task('test', ['kissy', 'cmd', 'requirejs', 'standalone']);
+gulp.task('default', ['kissy', 'cmd', 'requirejs', 'standalone']);

@@ -7,7 +7,10 @@ KISSY.add('act/game', function(S, Bitmap, ticker, event){
  * @requires  hilo/event
  */
 var game = {
-
+    init:function(){
+        var bmp = new Bitmap();
+        var ticker = new Ticker();
+    }
 };
 
 return game;
