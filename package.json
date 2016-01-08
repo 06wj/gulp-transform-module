@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@gitlab.alibaba-inc.com:hilo/gulp-transform-module.git"
+    "url": "git@github.com:06wj/gulp-transform-module.git"
   },
   "author": "",
   "license": "ISC",
