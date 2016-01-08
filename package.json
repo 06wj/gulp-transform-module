@@ -1,10 +1,17 @@
 {
   "name": "gulp-transform-module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "transform code to multiple module define",
-  "main": "index.js",
+  "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": "https://github.com/06wj/gulp-transform-module",
+  "bugs": "https://github.com/06wj/gulp-transform-module/issues",
+  "author": {
+    "name": "06wj",
+    "email": "06wj@163.com",
+    "url": "https://github.com/06wj"
   },
   "keywords":[
     "gulpplugin"
@@ -14,7 +21,7 @@
     "url": "git@github.com:06wj/gulp-transform-module.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "gulp-util": "^3.0.7",
     "through2": "^2.0.0"
