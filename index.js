@@ -10,9 +10,10 @@ var MODULE_TYPES = {
 };
 
 /**
- * 转换模块
- * @param  {String|Function} typeOrFunc 内置kissy, requirejs, cmd，可以传function，默认requirejs
- * @return {Stream}
+ * transform module define
+ * @param  {String|Function} typeOrFunc, if type, value is requirejs|cmd|kissy, default is requirejs;
+ *                                       if function，see below;
+ * @return {steam}
  */
 module.exports = function transform(typeOrFunc) {
     var buildFunc;
