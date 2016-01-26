@@ -1,6 +1,6 @@
-var Bitmap = require('hilo/view/Bitmap');
-var ticker = require('hilo/util/ticker');
-var event = require('hilo/event');
+var Bitmap = require('../hilo/view/Bitmap');
+var ticker = require('../hilo/util/ticker');
+var event = require('../hilo/event');
 
 /**
  * @module  act/game
