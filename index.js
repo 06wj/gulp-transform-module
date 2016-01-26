@@ -6,12 +6,13 @@ var PLUGIN_NAME = 'gulp-transform-module';
 var MODULE_TYPES = {
     kissy: require('./lib/kissy'),
     cmd: require('./lib/cmd'),
-    requirejs: require('./lib/requirejs')
+    amd: require('./lib/amd'),
+    commonjs: require('./lib/commonjs')
 };
 
 /**
  * transform module define
- * @param  {String|Function} typeOrFunc, if type, value is requirejs|cmd|kissy, default is requirejs;
+ * @param  {String|Function} typeOrFunc, if type, value is amd|commonjs|cmd|kissy, default is amd;
  *                                       if function，see below;
  * @return {steam}
  */

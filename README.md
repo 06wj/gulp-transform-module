@@ -29,8 +29,8 @@
 
     gulp.task('transform', function(){
         return gulp.src('**/*.js')
-            .pipe(transformModule('requirejs'))
-            .pipe(rename({suffix:'-requirejs'}))
+            .pipe(transformModule('amd'))
+            .pipe(rename({suffix:'-amd'}))
             .pipe(gulp.dest('build/'));
     });
     ```
@@ -41,7 +41,7 @@
     ```javascript
     /**
     * transform module define
-    * @param  {String|Function} typeOrFunc, if type, value is requirejs|cmd|kissy, default is requirejs;
+    * @param  {String|Function} typeOrFunc, if type, value is amd|commonjs|cmd|kissy, default is amd;
     *                                       if function，see #transformModuleFunction;
     * @return {steam}
     */

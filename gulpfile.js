@@ -5,7 +5,8 @@ var transformModule = require('./index');
 var moduleTypes = {
     kissy:'kissy',
     cmd:'cmd',
-    requirejs:'requirejs',
+    amd:'amd',
+    commonjs:'commonjs',
     standalone:function(metadata){
         var head = '(function(window){\n';
         var tail = '\n})(window);';
@@ -45,4 +46,4 @@ for(var moduleType in moduleTypes){
     })(moduleType);
 }
 
-gulp.task('default', ['kissy', 'cmd', 'requirejs', 'standalone']);
+gulp.task('default', ['kissy', 'cmd', 'amd', 'commonjs', 'standalone']);

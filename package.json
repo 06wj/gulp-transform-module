@@ -1,6 +1,6 @@
 {
   "name": "gulp-transform-module",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "transform code to multiple module define",
   "main": "./index.js",
   "scripts": {
