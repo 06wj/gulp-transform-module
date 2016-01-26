@@ -12,19 +12,11 @@ var MODULE_TYPES = {
 
 /**
  * transform module define
- * @param  {String|Function} typeOrFunc, if type, value is amd|commonjs|cmd|kissy, default is amd;
- *                                       if function，see below;
+ * @param  {String} moduleType, can be amd,commonjs,cmd,kissy, default is amd;
  * @return {steam}
  */
-module.exports = function transform(typeOrFunc) {
-    var buildFunc;
-    if (typeof typeOrFunc === 'function') {
-        buildFunc = typeOrFunc;
-    } else if (MODULE_TYPES[typeOrFunc]) {
-        buildFunc = MODULE_TYPES[typeOrFunc];
-    } else {
-        buildFunc = MODULE_TYPES['requirejs'];
-    }
+module.exports = function transform(moduleType) {
+    var buildFunc = MODULE_TYPES[moduleType]||MODULE_TYPES['amd'];
 
     return through.obj(function(file, enc, cb) {
         if (file.isNull()) {
@@ -82,4 +74,8 @@ function findMetadata(code) {
         requireModules: requireModules,
         requireClasses: requireClasses
     };
-}
+};
+
+module.exports.add = function(type, moduleFunction){
+    MODULE_TYPES[type] = moduleFunction;
+};

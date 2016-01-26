@@ -29,23 +29,39 @@
 
     gulp.task('transform', function(){
         return gulp.src('**/*.js')
-            .pipe(transformModule('amd'))
+            .pipe(transformModule('amd'))//transform to amd
             .pipe(rename({suffix:'-amd'}))
             .pipe(gulp.dest('build/'));
     });
     ```
 
 ## api
-* transformModule
+* get transformModule
+
+    ```javascript
+    var transformModule = require('gulp-transform-module');
+    ```
+* transform module define
 
     ```javascript
     /**
     * transform module define
-    * @param  {String|Function} typeOrFunc, if type, value is amd|commonjs|cmd|kissy, default is amd;
-    *                                       if function，see #transformModuleFunction;
+    * @param  {String} moduleType, can be amd,commonjs,cmd,kissy, default is amd
     * @return {steam}
     */
-    transformModule(typeOrFunc)
+    transformModule(moduleType)
+    ```
+
+* add custom module define
+
+    ```
+    /**
+    * add custom module define
+    * @param {String} moduleType
+    * @oaram {Function} transformModuleFunction
+    *                   see #transformModuleFunction for example
+    */
+    transformModule.add(moduleType, transformModuleFunction)
     ```
 
 * transformModuleFunction example
