@@ -1,5 +1,5 @@
 # gulp-transform-module
-> transform code to multiple module define
+> transform code to multiple module define,include CommonJS, AMD, CMD and Kissy.
 
 ## usage
 
