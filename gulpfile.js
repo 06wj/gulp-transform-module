@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var rename = require('gulp-rename');
+var del = require('del');
 var transformModule = require('./index');
 
 //custom module define
@@ -30,10 +31,16 @@ transformModule.add('standalone', function(metadata){
     };
 });
 
+gulp.task('clean', function(cb){
+    del(['test/build/**/*']).then(function(){
+        cb();
+    });
+});
+
 var moduleTypes = ['amd', 'commonjs', 'cmd', 'kissy', 'standalone'];
 moduleTypes.forEach(function(moduleType){
-    gulp.task(moduleType, function(){
-        return gulp.src('./test/game.js')
+    gulp.task(moduleType, ['clean'], function(){
+        return gulp.src('./test/*.js', { buffer: Math.random()>0.5 })
             .pipe(transformModule(moduleType))
             .pipe(rename({suffix:'-' + moduleType}))
             .pipe(gulp.dest('./test/build/'));

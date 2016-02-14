@@ -1,5 +1,6 @@
 var through = require('through2');
 var gutil = require('gulp-util');
+var bufferstreams = require('bufferstreams');
 var PluginError = gutil.PluginError;
 
 var PLUGIN_NAME = 'gulp-transform-module';
@@ -13,32 +14,60 @@ var MODULE_TYPES = {
 /**
  * transform module define
  * @param  {String} moduleType, can be amd,commonjs,cmd,kissy, default is amd;
- * @return {steam}
+ * @return {stream}
  */
-module.exports = function transform(moduleType) {
+module.exports = function gulpTransformModule(moduleType) {
     var buildFunc = MODULE_TYPES[moduleType]||MODULE_TYPES['amd'];
 
     return through.obj(function(file, enc, cb) {
+        var that = this;
         if (file.isNull()) {
             cb(null, file);
             return;
         }
-        if (file.isStream()) {
-            cb(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
+
+        function transformModule(buffer, done){
+            var result;
+            try{
+                var content = buffer.toString();
+                var metadata = findMetadata(content);
+                var headTail = buildFunc(metadata);
+                result = new Buffer(headTail.head + content + headTail.tail);
+                done(null, result);
+            }
+            catch(err){
+                done(new PluginError(PLUGIN_NAME, err, {
+                    fileName: file.path
+                }));
+            }
+        }
+
+        if(file.isStream()){
+            file.contents = file.contents.pipe(new bufferstreams(function(err, buf, done){
+                transformModule(buf, function(err, contents){
+                    if(err){
+                        that.emit('error', err);
+                    }
+                    else{
+                        done(null, contents);
+                        that.push(file);
+                    }
+                    cb();
+                });
+            }));
             return;
         }
-        try {
-            var content = file.contents.toString();
-            var metadata = findMetadata(content);
-            var headTail = buildFunc(metadata);
-            file.contents = new Buffer(headTail.head + content + headTail.tail);
-            this.push(file);
-        } catch (err) {
-            this.emit('error', new PluginError(PLUGIN_NAME, err, {
-                fileName: file.path
-            }));
-        }
-        cb();
+
+        transformModule(file.contents, function(err, contents){
+            if(err){
+                that.emit('error', err);
+            }
+            else{
+                file.contents = contents;
+                that.push(file);
+            }
+            cb();
+        });
     });
 };
 

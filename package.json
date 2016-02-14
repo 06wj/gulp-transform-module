@@ -1,6 +1,6 @@
 {
   "name": "gulp-transform-module",
-  "version": "2.1.1",
+  "version": "2.2.1",
   "description": "transform code to multiple module define",
   "main": "./index.js",
   "scripts": {
@@ -18,10 +18,12 @@
   },
   "license": "MIT",
   "dependencies": {
+    "bufferstreams": "^1.1.0",
     "gulp-util": "^3.0.7",
     "through2": "^2.0.0"
   },
   "devDependencies": {
+    "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-rename": "~1.2.2"
   }
