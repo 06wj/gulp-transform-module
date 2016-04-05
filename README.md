@@ -99,4 +99,4 @@
     ```
 
 ## example
-see [gulpfile.js](https://github.com/06wj/gulp-transform-module/tree/master/gulpfile.js), [game.js](https://github.com/06wj/gulp-transform-module/tree/master/test/game.js), [build](https://github.com/06wj/gulp-transform-module/tree/master/test/build/)
+check [gulpfile.js](https://github.com/06wj/gulp-transform-module/tree/master/gulpfile.js), [game.js](https://github.com/06wj/gulp-transform-module/tree/master/test/game.js), [build](https://github.com/06wj/gulp-transform-module/tree/master/test/build/)
