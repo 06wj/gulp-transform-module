@@ -1,8 +1,10 @@
 /**
  * @module  act/game
+ * @requires act/utils
  * @requires  hilo/view/Bitmap
  * @requires  hilo/util/ticker
  * @requires  hilo/event
+ * @requires config
  */
 var game = {
     init:function(){

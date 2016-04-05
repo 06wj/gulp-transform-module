@@ -1,10 +1,12 @@
-KISSY.add('act/game', function(S, Bitmap, ticker, event){
+KISSY.add('act/game', function(S, utils, Bitmap, ticker, event, config){
 
 /**
  * @module  act/game
+ * @requires act/utils
  * @requires  hilo/view/Bitmap
  * @requires  hilo/util/ticker
  * @requires  hilo/event
+ * @requires config
  */
 var game = {
     init:function(){
@@ -16,5 +18,5 @@ var game = {
 return game;
 
 }, {
-    requires: ['hilo/view/Bitmap', 'hilo/util/ticker', 'hilo/event']
+    requires: ['act/utils', 'hilo/view/Bitmap', 'hilo/util/ticker', 'hilo/event', 'config']
 });
